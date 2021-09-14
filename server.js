@@ -6,6 +6,9 @@ const bodyParser = require('body-parser'); // else sended data using postman is 
 // app.use(bodyParser.json());
 app.use(bodyParser.urlencoded( {limit: '10mb', extended: false} ));
 
+app.use(express.static('static')); // include static files
+app.use(express.static('public')); // public files
+
 
 if(process.env.NODE_ENV !== 'production'){
     require('dotenv/config'); // add hidden information, using if condition to set false if not uploaded on heroku
@@ -24,7 +27,6 @@ app.set('views', __dirname + '/views'); // server rendered views
 app.set('layout', 'layouts/layout'); // defining layout globally
 
 app.use(expressLayouts);
-app.use(express.static('public')); // public files
 
 // set up server
 
