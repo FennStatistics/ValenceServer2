@@ -6,14 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My great application</title>
 </head>
-<header>
-    <h1>CAM Software</h1>
-</header>
-<body>
-    Before
-    <br>
-    <%- body%> <!-- include everything else in this body page of our server -->
-    <br>
-    After
+
+
+<body> <!-- include everything else in this body page of our server -->
+    <%- include('../partials/header.ejs') %> <!-- include partials -> header -->
+    <%- include('../partials/errorMessage.ejs') %> 
+
+    <%- body%> 
+
 </body>
 </html>

@@ -3,10 +3,15 @@ const app = express();
 const expressLayouts = require('express-ejs-layouts');
 
 const bodyParser = require('body-parser'); // else sended data using postman is undefined
-app.use(bodyParser.json());
+// app.use(bodyParser.json());
+app.use(bodyParser.urlencoded( {limit: '10mb', extended: false} ));
+
+
 if(process.env.NODE_ENV !== 'production'){
-    require('dotenv/config'); // add hidden information, .load()? see video #1 Full Stack Web Development at 16:30
+    require('dotenv/config'); // add hidden information, using if condition to set false if not uploaded on heroku
 }
+
+
 
 // include routes
 const indexRouter = require('./routes/index');
