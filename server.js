@@ -4,7 +4,9 @@ const expressLayouts = require('express-ejs-layouts');
 
 const bodyParser = require('body-parser'); // else sended data using postman is undefined
 app.use(bodyParser.json());
-require('dotenv/config'); // add hidden information, .load()? see video #1 Full Stack Web Development at 16:30
+if(process.env.NODE_ENV !== 'production'){
+    require('dotenv/config'); // add hidden information, .load()? see video #1 Full Stack Web Development at 16:30
+}
 
 // include routes
 const indexRouter = require('./routes/index');
