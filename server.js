@@ -8,6 +8,7 @@ require('dotenv/config'); // add hidden information, .load()? see video #1 Full 
 
 // include routes
 const indexRouter = require('./routes/index');
+const authorRouter = require('./routes/authors');
 
 
 app.set('view engine', 'ejs');
@@ -44,7 +45,9 @@ mongoose.connect(
 );
 */
 
+// use included routes
 app.use('/', indexRouter);
+app.use('/authors', authorRouter);
 
 
 app.listen(process.env.PORT || 3000); // default port 3000, else server is listening to server using ""
