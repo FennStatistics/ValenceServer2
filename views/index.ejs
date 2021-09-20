@@ -16,6 +16,14 @@
     }
 </style>
 
+<!-- add recently added projects: -->
+<h2>Recently added projects: </h2>
+<div>
+    <% books.forEach(book => { %>
+        <img height="150px" width="150px" src="<%= book.coverImagePath %>">
+        <div>Title: <%= book.title %>, Description: <%= book.description %></div>
+    <%});%>
+</div>
 
 <div class="row">
     <div class="column" style="text-align: left;">

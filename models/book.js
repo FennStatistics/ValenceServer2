@@ -1,4 +1,7 @@
 const mongoose = require('mongoose');
+const coverImageBasePath = 'uploads/bookCovers';
+
+const path = require('path');
 
 const bookSchema = new mongoose.Schema({
     title: {
@@ -33,5 +36,14 @@ const bookSchema = new mongoose.Schema({
     }
 });
 
+bookSchema.virtual('coverImagePath').get(function(){ // using function to have access to the "this" property
+   if(this.coverImageName != null){
+    return path.join('/', coverImageBasePath, this.coverImageName); // roots folder is public: / 
+   }
+}) // derive its value from bookSchema
 
 module.exports = mongoose.model('Book', bookSchema);
+module.exports.coverImageBasePath = coverImageBasePath;
+
+
+
