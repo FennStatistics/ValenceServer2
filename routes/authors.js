@@ -29,7 +29,7 @@ router.get('/new', (req, res) => {
 
 // create new author > render nothing just create
 router.post('/', async (req, res) => {
-    console.log("posted Author using form script:", req.body);
+    console.log("posted Author using form script with name:", req.body.name);
 
     const author = new Author({
         name: req.body.name

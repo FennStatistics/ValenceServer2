@@ -1,20 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My great application</title>
 
+    <!-- add icons of googleapi -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- add filepond -->
+
+    <!--  
+    <link rel="stylesheet" href="../src/FilePond/FilePond.css">
+    
+    <script defer src="../src/FilePond/FilePondPluginImagePreview.js" crossorigin="anonymous"></script>
+    <script defer src="../src/FilePond/FilePondPluginFileEncode.js" crossorigin="anonymous"></script>
+    <script defer src="../src/FilePond/FilePondPluginImageResize.js" crossorigin="anonymous"></script>
+    <script defer src="../src/FilePond/FilePond.js" crossorigin="anonymous"></script>
+
+    <script defer src="/javascripts/fileUpload.js"></script>
+     -->
+    <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
+    <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css"
+        rel="stylesheet">
+
+    <script defer src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+    <script defer src="https://unpkg.com/filepond-plugin-file-encode/dist/filepond-plugin-file-encode.js"></script>
+    <script defer src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js"></script>
+    <script defer src="https://unpkg.com/filepond/dist/filepond.js"></script>
+
+    <script defer src="/javascripts/fileUpload.js"></script>
 </head>
 
 
-<body> <!-- include everything else in this body page of our server -->
-    <%- include('../partials/header.ejs') %> <!-- include partials -> header -->
-    <%- include('../partials/errorMessage.ejs') %> 
+<body>
+    <!-- include everything else in this body page of our server -->
+    <%- include('../partials/header.ejs') %>
+    <!-- include partials -> header -->
+    <%- include('../partials/errorMessage.ejs') %>
 
-    <%- body%> 
+    <%- body%>
 
 </body>
+
 </html>

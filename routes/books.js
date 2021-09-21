@@ -3,17 +3,8 @@ const router = express.Router();
 const Book = require('../models/book');
 const Author = require('../models/author');
 
-const fs = require('fs'); // to delete files witin file system
-const path = require('path'); // to combine public and path created within book model
-const uploadPath = path.join('public', Book.coverImageBasePath);
 const imageMimeTypes = ['image/jpeg', 'image/png', 'image/png'];
-const multer = require('multer');
-const upload = multer({
-    dest: uploadPath,
-    fileFilter: (req, file, callback) => {
-        callback(null, imageMimeTypes.includes(file.mimetype));
-    }
-});
+
 
 
 // all books route
@@ -50,32 +41,33 @@ router.get('/new', async (req, res) => {
 });
 
 // create new book > render nothing just create
-router.post('/', upload.single('cover'), async (req, res) => {
+router.post('/', async (req, res) => {
+    console.log("posted Book using form script with title:", req.body.title);
+
     const fileName = req.file != null ? req.file.filename : null;
-    console.log("posted Book using form script:", req.body);
 
     const book = new Book({
         title: req.body.title,
         description: req.body.description,
         publishDate: new Date(req.body.publishDate),
         pageCount: req.body.pageCount,
-        author: req.body.author,
-        coverImageName: fileName
-        // for file first save file in our file system and get name from there and save it to book
+        author: req.body.author
     })
+
+    saveCover(book, req.body.cover); // save cover
+
     try {
         const newBook = await book.save();
         //res.redirect('books/${newBook.id}')
         res.redirect('/books');
     } catch {
-        if (book.coverImageName != null) {
-            removeBookCover(book.coverImageName);
-        }
         renderNewPage(res, book, true); // has error here
 
     }
     //res.send('create book');
 });
+
+
 
 async function renderNewPage(res, book, hasError = false) { // new or existing book -> book variabe
     try {
@@ -97,13 +89,19 @@ async function renderNewPage(res, book, hasError = false) { // new or existing b
 }
 
 
-function removeBookCover(fileName) {
-    fs.unlink(path.join(uploadPath, fileName), err => {
-        if (err) {
-            console.err(err); // only internal error not relevant for user
-        }
-    })
+
+
+
+function saveCover(book, coverEncoded){
+    if(coverEncoded == null) return;
+
+    const cover = JSON.parse(coverEncoded); // returns null if empty string or badly encoded Java Script
+    if(cover != null && imageMimeTypes.includes(cover.type)){
+        book.coverImage = new Buffer.from(cover.data, 'base64');
+        book.coverImageType = cover.type;
+    }
 }
+
 
 
 module.exports = router;
