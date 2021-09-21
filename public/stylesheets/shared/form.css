@@ -1,0 +1,84 @@
+:root{
+    --form-label-font-size: 1.2rem;
+    --form-input-border-color: rgb(122, 122, 122);
+    --form-input-background-color: rgb(197, 197, 197);
+    --form-input-text-color: rgb(0, 0, 0);
+    --form-focus-border-color: rgb(120, 170, 125); 
+}
+
+
+
+.form-row{
+    display: flex;
+    margin-bottom: 5px;
+}
+
+.form-item{
+    display: flex;
+    flex-direction: column;
+    margin-left: 2rem;
+    flex-grow: 1;
+    flex-basis: 0; /*both grow from the same base*/
+}
+
+.form-item:first-child{
+    margin-left: 0px;
+}
+
+.form-item-no-grow{
+    flex-grow: .5;
+}
+
+.form-row-end{
+    justify-content: flex-end;
+}
+
+.form-item > label{
+    font-size: var(--form-label-font-size);
+    margin-bottom: .25rem;
+    margin-left: .25rem;
+}
+
+.form-item input, .form-item select, .form-item textarea{
+    height: 2rem;
+    padding: .25rem .5rem;
+    border-radius: .25rem;
+    font-size: 1rem;
+    font-weight: normal;
+    outline: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border: 2px solid var(--form-input-border-color);
+    background-color: var(--form-input-background-color);
+    color: var(--form-input-text-color);
+}
+
+.form-item textarea{
+    height: 100%;
+    resize: none;
+}
+
+.form-item select option{
+    background-color: rgb(121, 121, 121);
+}
+
+.form-item input:focus, .form-item select:focus, .form-item textarea:focus{
+    border-color: var(--form-focus-border-color);
+}
+
+
+/* adjust filepond */
+.filepond--root{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-bottom: 0px;
+
+}
+
+.filepond--panel-root{
+    background-color: var(--form-input-background-color); 
+    border: 2px solid var(--form-input-border-color);    
+}
+
+.filepond--drop-label{
+    color: var( --form-input-text-color);
+    font-size: inherit;
+}
