@@ -38,7 +38,7 @@ router.post('/', async (req, res) => {
 
     try {
         const newAuthor = await author.save();
-        res.redirect(`authors/${newAuthor.id}`); // using backticks because JS included
+        res.redirect(`/authors/${newAuthor.id}`); // using backticks because JS included
     } catch {
         res.render('authors/new', {
             author: author,
