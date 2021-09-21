@@ -2,9 +2,13 @@ const express = require('express');
 const app = express();
 const expressLayouts = require('express-ejs-layouts');
 
+
 const bodyParser = require('body-parser'); // else sended data using postman is undefined
 // app.use(bodyParser.json());
 app.use(bodyParser.urlencoded( {limit: '10mb', extended: false} ));
+
+const methodOverride = require('method-override');
+app.use(methodOverride('_method'))
 
 app.use(express.static('static')); // include static files
 app.use(express.static('public')); // public files
@@ -13,7 +17,6 @@ app.use(express.static('public')); // public files
 if(process.env.NODE_ENV !== 'production'){
     require('dotenv/config'); // add hidden information, using if condition to set false if not uploaded on heroku
 }
-
 
 
 // include routes

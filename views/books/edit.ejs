@@ -1,0 +1,7 @@
+<h2>Edit Book</h2>
+
+<form action="/books/<%= book.id %>?_method=PUT" method="POST"> <!-- multipart data which could include a file -->
+    <%- include('_form_fields') %>
+    <a href="/books">Cancel</a> <!-- anchor tag is to link things and buttons to interact with forms -->
+    <button type="submit">Update</button>
+</form>

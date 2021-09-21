@@ -18,7 +18,9 @@
 <br>
 <div>
     <% books.forEach(book => { %>
+        <a href="/books/<%= book.id %>"> <!-- wrap book in an anchor tag -->
         <img height="150px" width="150px" src="<%= book.coverImagePath %>">
+    </a>
         <div>Title: <%= book.title %>, Description: <%= book.description %></div>
     <%});%>
 </div>
