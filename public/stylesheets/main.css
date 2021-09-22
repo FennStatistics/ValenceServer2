@@ -1,3 +1,11 @@
 /* add single stylesheets to main stylesheet  */
+@import 'shared/variables.css';
+
 @import 'shared/form.css';
+@import 'shared/buttons.css';
+
+:root{
+    font-family: Verdana, Geneva, Tahoma, sans-serif; /* also change: ".form-item input, .form-item select, .form-item textarea", ".btn"*/
+    font-size: 16px;
+}
 

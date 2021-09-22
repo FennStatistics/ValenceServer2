@@ -1,0 +1,74 @@
+:root {
+    /*primary buttons: */
+    --color-btn-border: rgb(0, 0, 0);
+    --color-btn-primary-background: hsl(var(--color-base), 0%, 70%);
+    --color-btn-primary-text: hsl(var(--color-base), 0%, 0%);
+    /*delete buttons: */
+    --color-btn-danger-text: hsl(var(--color-base), 0%, 0%);
+    --color-btn-danger-background: hsl(var(--color-base-danger), 100%, 60%);
+    /*cancel buttons: */
+    --color-btn-cancel-text: hsl(var(--color-base), 0%, 0%);
+    --color-btn-cancel-background: hsl(var(--color-base-danger), 60%, 60%);
+    /*hover over buttons: create darker variant*/
+    --color-btn-primary-background-hover-dark: hsl(var(--color-base), 0%, 50%);
+    --color-btn-danger-background-hover-dark: hsl(var(--color-base), 100%, 30%);
+    --color-btn-cancel-background-hover-dark: hsl(var(--color-base), 60%, 30%);
+}
+
+
+.btn {
+    border: 1px solid var(--color-btn-border);
+    border-radius: .5rem;
+    padding: .5rem 1rem;
+    /*top-button, left-right*/
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    /*not equal to root font-family*/
+    cursor: pointer;
+    /*get hand instead of normal cursor*/
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+}
+
+.btn-primary {
+    color: var(--color-btn-primary-text);
+    background-color: var(--color-btn-primary-background);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-btn-primary-background-hover-dark);
+}
+
+.btn-danger {
+    color: var(--color-btn-danger-text);
+    background-color: var(--color-btn-danger-background);
+}
+
+.btn-danger:hover {
+    background-color: var(--color-btn-danger-background-hover-dark);
+}
+
+.btn-cancel {
+    color: var(--color-btn-cancel-text);
+    background-color: var(--color-btn-cancel-background);
+}
+
+.btn-cancel:hover {
+    background-color: var(--color-btn-cancel-background-hover-dark);
+}
+
+
+
+.btn-row {
+    display: flex;
+    align-items: flex-start;
+}
+
+.btn-row>* {
+    /*select all childs*/
+    margin-left: .5rem;
+}
+
+.btn-row>*:first-child {
+    margin-left: 0;
+}

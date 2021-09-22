@@ -1,9 +1,13 @@
 <h2>New Book</h2>
 
-<form action="/books" method="POST"> <!-- multipart data which could include a file -->
+<form action="/books" method="POST">
+    <!-- multipart data which could include a file -->
     <%- include('_form_fields') %>
     <div class="form-row form-row-end">
-        <a href="/books">Cancel</a> <!-- anchor tag is to link things and buttons to interact with forms -->
-        <button type="submit">Create</button>
+        <div>
+            <a class="btn btn-cancel" href="/books">Cancel</a>
+            <!-- anchor tag is to link things and buttons to interact with forms -->
+            <button type="submit" class="btn btn-primary">Create</button>
+        </div>
     </div>
 </form>

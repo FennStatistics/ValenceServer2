@@ -1,9 +1,9 @@
 :root{
     --form-label-font-size: 1.2rem;
-    --form-input-border-color: rgb(122, 122, 122);
-    --form-input-background-color: rgb(197, 197, 197);
-    --form-input-text-color: rgb(0, 0, 0);
-    --form-focus-border-color: rgb(120, 170, 125); 
+    --form-input-border-color: rgb(0, 0, 0);
+    --form-input-background-color: hsl(var(--color-base), 0%, 80%);
+    --form-input-text-color: hsl(var(--color-base), 0%, 0%);
+    --form-focus-border-color: rgb(54, 168, 65); 
 }
 
 
@@ -46,7 +46,7 @@
     font-size: 1rem;
     font-weight: normal;
     outline: none;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif; /*not equal to root font-family*/
     border: 2px solid var(--form-input-border-color);
     background-color: var(--form-input-background-color);
     color: var(--form-input-text-color);
