@@ -23,6 +23,7 @@ if(process.env.NODE_ENV !== 'production'){
 const indexRouter = require('./routes/index');
 const authorRouter = require('./routes/authors');
 const bookRouter = require('./routes/books');
+const testRouter = require('./routes/tests');
 
 
 app.set('view engine', 'ejs');
@@ -62,6 +63,6 @@ mongoose.connect(
 app.use('/', indexRouter);
 app.use('/authors', authorRouter);
 app.use('/books', bookRouter);
-
+app.use('/tests', testRouter);
 
 app.listen(process.env.PORT || 3000); // default port 3000, else server is listening to server using ""
